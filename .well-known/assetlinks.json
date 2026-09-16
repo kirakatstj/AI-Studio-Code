@@ -1,1 +1,8 @@
-
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.kirakatstj.aistudiocode",
+        "sha256_cert_fingerprints": ["13:3A:4D:A3:A1:84:82:68:34:21:F8:70:49:3B:6D:41:BB:52:20:8E:7B:AB:9E:7E:8A:56:46:B6:01:3F:03:71"]
+      }
+    }]
