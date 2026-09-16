@@ -11,31 +11,40 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install Cordova globally
+      - name: Install Cordova
         run: npm install -g cordova
 
-      - name: Create Cordova project structure
+      - name: Init Cordova Project
         run: |
-          cordova create myApp com.kirakatstj.aistudiocode AIStudioCode
-          cd myApp
-          # Копируем твои файлы в папку www для сборки
-          rm -rf www/*
-          cp -r ../index.html ../manifest.json ../icon.png ../.well-known www/ || cp ../index.html www/
+          cordova create project com.aistudio.code AIStudioCode
+          cd project
           cordova platform add android
 
-      - name: Build Debug APK
+      - name: Copy Web Files
         run: |
-          cd myApp
+          rm -rf project/www/*
+          cp index.html project/www/
+          if [ -f "manifest.json" ]; then cp manifest.json project/www/; fi
+          if [ -d ".well-known" ]; then cp -r .well-known project/www/; fi
+
+      - name: Build APK
+        run: |
+          cd project
           cordova build android --debug
 
-      - name: Upload APK artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
           name: app-debug
-          path: myApp/platforms/android/app/build/outputs/apk/debug/app-debug.apk
-
+          path: project/platforms/android/app/build/outputs/apk/debug/app-debug.apk
