@@ -1,6 +1,7 @@
 {
   "name": "AI Studio Code",
   "short_name": "AI Code",
+  "description": "Custom web-based code editor with file export functionality",
   "start_url": "/AI-Studio-Code/",
   "scope": "/AI-Studio-Code/",
   "display": "standalone",
@@ -22,4 +23,3 @@
     }
   ]
 }
-
