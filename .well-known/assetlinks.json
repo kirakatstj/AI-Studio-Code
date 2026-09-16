@@ -3,6 +3,6 @@
       "target": {
         "namespace": "android_app",
         "package_name": "io.kirakatstj.aistudiocode.Application",
-        "sha256_cert_fingerprints": ["D8:C2:A2:6B:AB:29:BA:74:0A:46:CC:62:90:10:02:9E:03:CC:54:94:00:AF:0E:74:22:95:08:B8:42:34:26:E1"]
+        "sha256_cert_fingerprints": ["AC:5C:05:5B:8B:66:B7:8A:50:6D:28:06:BF:1E:0E:1F:FB:40:41:B2:CE:5C:77:BB:03:F6:EB:2F:F3:00:72:F9"]
       }
     }]
